@@ -1,0 +1,62 @@
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_General.cshtml";
+}
+
+@model NazdaqSearch.Models.SymbolInputModel
+
+<div class="Search" align="center" style=" /* Must manually set width/height */
+ width:300px;
+ height:250px;
+
+ /* The magic centering code */
+ margin:auto;
+ position:absolute;
+ top:0;bottom:0; /* Aligns Vertically - Remove for Horizontal Only */
+ left:0;right:0; /* Aligns Horizontally - Remove for Vertical Only  */
+
+ /* Prevent div from overflowing main window */
+ max-width:100%;
+ max-height:100%;
+ overflow:auto;
+ 
+background-color: #6ed3cf;
+color: #333;">
+
+    <h2>Search Here!</h2>
+
+    <a href="../Logic/Refresh" style="
+    color: #333;
+    background: #9068be;
+    padding: 10px 10px;
+    display: block;
+    margin: 10px 0;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 13px;"> Refresh </a>
+    <p></p>
+
+    @using (Html.BeginForm("SymbolDisplay", "Home", FormMethod.Post))
+    {
+        <form>
+
+            @Html.LabelFor(model => model.SymbolInput, "Symbol Search")
+            @Html.TextBoxFor(model => model.SymbolInput)
+            @* @Html.Hidden("Symbol Input", model.SymbolInput) *@
+
+            <p></p>
+
+            @Html.LabelFor(model => model.DateInput, "Date Search")
+            @Html.TextBoxFor(model => model.DateInput, "{0:yyyy-mm-dd}", new { type = "date" })
+            @* @Html.Hidden("DateInput", model.DateInput) *@
+
+            <p></p>
+
+            <input type="submit" id="submitId" value="Submit" />
+
+        </form>
+    }
+
+
+</div>

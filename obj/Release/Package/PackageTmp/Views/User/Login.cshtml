@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+
+@model NazdaqSearch.Models.userModel
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="~/Style/User.css" />
+</head>
+
+<body style="background-color:#e1e8f0">
+
+<div class="login", align="center">
+
+<h2>Login</h2>
+
+
+@using (Html.BeginForm("Authenticator", "User", FormMethod.Post))
+{
+    <form>
+
+        @Html.LabelFor(model => model.UserID, "Username")
+        @Html.TextBoxFor(model => model.UserID)
+        @* @Html.Hidden("UserID", model.UserID) *@
+
+        <p></p>
+
+        @Html.LabelFor(model => model.UserID, "Password")
+        @Html.PasswordFor(model => model.Password)
+        @* @Html.Hidden("Password, model.Password) *@
+
+        <p></p>
+
+        <input type="submit" id="submitId" value="Submit" />
+
+    </form>
+
+}
+
+@Html.ActionLink("Create New User", "CreateUser", null, null, new { @class = "link-btn" })
+
+</div>
+
+</body>
+
+</html>

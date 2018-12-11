@@ -1,0 +1,37 @@
+﻿div.login {
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 13px;
+
+    background-color: #6ed3cf;
+    color: #333;
+}
+
+.link-btn {
+    color: #333;
+    background: #9068be;
+    padding: 10px 10px;
+    display: block;
+    margin: 10px 0;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 13px;
+
+}
+
+.link-btn:hover {
+    background: #6ab8be;
+}

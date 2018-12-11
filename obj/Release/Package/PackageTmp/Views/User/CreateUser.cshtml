@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.title = "Create User";
+    Layout = null;
+}
+
+@model NazdaqSearch.Models.userModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <link rel="stylesheet" href="~/Style/User.css" />
+
+</head>
+<body align="center" style="background-color:#e1e8f0">
+
+    <div class="login">
+
+        <h2 style="padding: 10px"> Enter New User Information </h2>
+
+        @using (Html.BeginForm("CreateUserAction", "User", FormMethod.Post))
+        {
+            <form>
+
+                @Html.LabelFor(model => model.UserID, "Username")
+                @Html.TextBoxFor(model => model.UserID)
+                @* @Html.Hidden("UserID", model.UserID) *@
+
+                <p></p>
+
+                @Html.LabelFor(model => model.Password, "Password")
+                @Html.PasswordFor(model => model.Password)
+                @* @Html.Hidden("Password, model.Password) *@
+
+                <p></p>
+
+                <input type="submit" id="submitId" value="Submit" />
+
+            </form>
+        }
+
+    </div>
+</body>
+</html>

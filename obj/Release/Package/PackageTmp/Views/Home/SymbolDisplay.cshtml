@@ -1,0 +1,44 @@
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_General.cshtml";
+}
+
+@model List<NazdaqSearch.Models.NDData>
+
+<div class="information">
+
+    @if (Model.Count == 0)
+    {
+        <h1> Your search turned up empty. </h1>
+        <h2> Go home and try again! </h2>
+    }
+    else
+    {
+
+        foreach (var item in Model)
+        {
+
+            <h1>
+                @item.Title 
+            </h1>
+
+            <h2> 
+                @item.Symbol 
+            </h2>
+
+            <p> 
+                @item.TimeandDate
+            </p>
+
+            <p>
+                @item.Data
+            </p>
+        }
+
+        @Html.ActionLink("Download .CSV", "CsvDownload")
+        <p></p>
+        @Html.ActionLink("Download .PDF", "PdfDownload")
+
+    }
+
+</div>
